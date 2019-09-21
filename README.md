@@ -1,4 +1,4 @@
-# Teams
+# Roles
 
 ![npm license](https://img.shields.io/npm/l/@enso-ui/roles.svg) 
 ![npm download](https://img.shields.io/npm/dm/@enso-ui/roles.svg) 
