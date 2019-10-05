@@ -31,12 +31,12 @@
     "webpack-cli": "^3.2.1"
   },
   "dependencies": {
-    "@enso-ui/bulma": "^2.0.1",
-    "@enso-ui/ui": "^2.0.3",
+    "@enso-ui/card": "1.0.x",
+    "@enso-ui/forms": "1.2.x",
+    "@enso-ui/tables": "1.1.x",
+    "@enso-ui/ui": "2.0.x",
     "@fortawesome/fontawesome-svg-core": "^1.2.2",
     "@fortawesome/free-solid-svg-icons": "^5.2.0",
-    "@enso-ui/forms": "^1.2.2",
-    "@enso-ui/tables": "^1.1.2",
     "v-tooltip": "^2.0.0-rc.32",
     "vue": "^2.5.16"
   }

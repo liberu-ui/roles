@@ -45,7 +45,7 @@
 <script>
 import {
     Card, CardHeader, CardContent, CardControl, CardCollapse,
-} from '@enso-ui/bulma';
+} from '@enso-ui/card/bulma';
 import ContentManager from './ContentManager.vue';
 
 import { Checked } from './statuses';
