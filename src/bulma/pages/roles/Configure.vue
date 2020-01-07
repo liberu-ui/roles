@@ -9,7 +9,7 @@
                     :data="data.permissions"/>
                 <button class="button is-success has-margin-top-large is-pulled-right"
                     @click="update"
-                    :disabled="!canAccess('system.roles.setPermissions')">
+                    :disabled="!canAccess('system.roles.permissions.set')">
                     {{ i18n("Update") }}
                 </button>
                 <div class="is-clearfix"/>
@@ -38,13 +38,13 @@ export default {
 
     methods: {
         fetch() {
-            axios.get(this.route('system.roles.getPermissions', this.$route.params.role))
+            axios.get(this.route('system.roles.permissions.get', this.$route.params.role))
                 .then(({ data }) => (this.data = data))
                 .catch(this.errorHandler);
         },
         update() {
             axios.post(
-                this.route('system.roles.setPermissions', this.$route.params.role),
+                this.route('system.roles.permissions.set', this.$route.params.role),
                 { rolePermissions: this.data.rolePermissions },
             ).then(({ data }) => this.$toastr.success(data.message))
                 .catch(this.errorHandler);
