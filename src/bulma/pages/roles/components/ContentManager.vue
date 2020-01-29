@@ -136,15 +136,8 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-    @import '~bulma/sass/utilities/initial-variables';
-    @import '~bulma/sass/utilities/derived-variables.sass';
-
+<style lang="scss">
     .level.is-hoverable {
-        &:hover {
-            background: $light;
-        }
-
         .item {
             white-space: nowrap;
             overflow: hidden;
