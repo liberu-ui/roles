@@ -136,7 +136,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
     .level.is-hoverable {
         .item {
             white-space: nowrap;
