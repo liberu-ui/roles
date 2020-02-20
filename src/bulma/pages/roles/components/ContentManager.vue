@@ -1,5 +1,5 @@
 <template>
-    <div class="wrapper">
+    <div class="wrapper content-manager">
         <div class="level is-hoverable is-marginless has-padding-large is-mobile"
             v-for="(item, index) in items"
             :key="index">
@@ -137,14 +137,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-    @import '~bulma/sass/utilities/initial-variables';
-    @import '~bulma/sass/utilities/derived-variables.sass';
-
     .level.is-hoverable {
-        &:hover {
-            background: $light;
-        }
-
         .item {
             white-space: nowrap;
             overflow: hidden;
