@@ -24,6 +24,7 @@
     "@enso-ui/card": "1.0.x",
     "@enso-ui/checkbox": "1.0.x",
     "@enso-ui/forms": "1.4.x",
+    "@enso-ui/permissions": "1.4.x",
     "@enso-ui/tables": "1.4.x",
     "@enso-ui/ui": "2.4.x",
     "@fortawesome/fontawesome-svg-core": "^1.2.2",
