@@ -4,9 +4,37 @@
             <div class="animated fadeIn"
                 v-if="data">
                 <checkbox-manager class="is-rounded has-margin-top-large"
-                    :title="`${data.role.display_name}'s ${i18n('Permissions')}`"
-                    :role-permissions="data.rolePermissions"
-                    :data="data.permissions"/>
+                    :title="`${i18n('Permissions')}: ${data.role.display_name}`"
+                    v-model="data.rolePermissions"
+                    :items="data.permissions">
+                    <template v-slot:item="{ item }">
+                        <div class="level permission is-hoverable has-padding-medium is-mobile">
+                            <div class="level-left">
+                                <div class="level-item">
+                                    <label class="checkbox">
+                                        <input type="checkbox"
+                                            :id="item.id"
+                                            :value="item.id"
+                                            v-model="data.rolePermissions">
+                                        {{ item.description }}
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="level-right">
+                                <div class="level-item">
+                                    <span class="tag is-small is-info is-bold has-margin-right-medium"
+                                        v-if="item.is_default">
+                                        {{ i18n('Default') }}
+                                    </span>
+                                    <span class="tag is-small is-bold"
+                                        :class="cssClass(item)">
+                                        {{ item.type }}
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </template>
+                </checkbox-manager>
                 <button class="button is-success has-margin-top-large is-pulled-right"
                     @click="update"
                     :disabled="!canAccess('system.roles.permissions.set')">
@@ -19,7 +47,8 @@
 </template>
 
 <script>
-import CheckboxManager from './components/CheckboxManager.vue';
+import permission from '@enso-ui/permissions/src/bulma/pages/permissions/mixins/permission';
+import { CheckboxManager } from '@enso-ui/checkbox/bulma';
 
 export default {
     name: 'Configure',
@@ -27,6 +56,8 @@ export default {
     inject: ['canAccess', 'errorHandler', 'i18n', 'route'],
 
     components: { CheckboxManager },
+
+    mixins: [permission],
 
     data: () => ({
         data: null,
@@ -52,3 +83,11 @@ export default {
     },
 };
 </script>
+
+<style lang="scss">
+    .level.permission .level-item {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+</style>
