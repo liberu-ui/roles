@@ -47,7 +47,7 @@
 </template>
 
 <script>
-import permission from '@enso-ui/permissions/src/bulma/pages/permissions/mixins/permission';
+import permission from '@enso-ui/permissions/src/bulma/mixins/permission';
 import { CheckboxManager } from '@enso-ui/checkbox/bulma';
 
 export default {
