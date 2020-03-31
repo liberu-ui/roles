@@ -47,7 +47,8 @@
 </template>
 
 <script>
-import permission from '@enso-ui/permissions/src/bulma/mixins/permission';
+import { mapState } from 'vuex';
+import cssClass from '@enso-ui/permissions/src/bulma/modules/permission';
 import { CheckboxManager } from '@enso-ui/checkbox/bulma';
 
 export default {
@@ -57,17 +58,22 @@ export default {
 
     components: { CheckboxManager },
 
-    mixins: [permission],
-
     data: () => ({
         data: null,
     }),
+
+    computed: {
+        ...mapState(['enums']),
+    },
 
     created() {
         this.fetch();
     },
 
     methods: {
+        cssClass(item) {
+            return cssClass(this.enums.permissionTypes, item);
+        },
         fetch() {
             axios.get(this.route('system.roles.permissions.get', this.$route.params.role))
                 .then(({ data }) => (this.data = data))
