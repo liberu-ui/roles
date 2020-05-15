@@ -4,31 +4,35 @@
             <enso-form class="box has-background-light raises-on-hover"
                 @ready="ready = true"
                 ref="form">
-                <template v-slot:actions
+                <template v-slot:actions-left
                     v-if="ready">
-                    <a class="button is-warning"
-                        @click="$router.push({
-                            name: 'system.roles.configure',
-                            params: { role: $refs.form.routeParam('role') }
-                        })">
-                        <span class="is-hidden-mobile">
-                            {{ i18n('Configure') }}
-                        </span>
-                        <span class="icon">
-                            <fa icon="sliders-h"/>
-                        </span>
-                        <span class="is-hidden-mobile"/>
-                    </a>
-                    <a class="button is-link"
-                        @click="writeConfig">
-                        <span class="is-hidden-mobile">
-                            {{ i18n('File') }}
-                        </span>
-                        <span class="icon">
-                            <fa icon="save"/>
-                        </span>
-                        <span class="is-hidden-mobile"/>
-                    </a>
+                    <div class=level-item>
+                        <a class="button is-warning"
+                            @click="$router.push({
+                                name: 'system.roles.configure',
+                                params: { role: $refs.form.routeParam('role') }
+                            })">
+                            <span class="is-hidden-mobile">
+                                {{ i18n('Configure') }}
+                            </span>
+                            <span class="icon">
+                                <fa icon="sliders-h"/>
+                            </span>
+                            <span class="is-hidden-mobile"/>
+                        </a>
+                    </div>
+                    <div class=level-item>
+                        <a class="button is-link"
+                            @click="writeConfig">
+                            <span class="is-hidden-mobile">
+                                {{ i18n('File') }}
+                            </span>
+                            <span class="icon">
+                                <fa icon="save"/>
+                            </span>
+                            <span class="is-hidden-mobile"/>
+                        </a>
+                    </div>
                 </template>
             </enso-form>
         </div>
