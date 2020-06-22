@@ -23,7 +23,7 @@
                             <div class="level-right">
                                 <div class="level-item">
                                     <span class="tag is-small is-info is-bold has-margin-right-medium"
-                                        v-if="item.is_default">
+                                        v-if="item.isDefault">
                                         {{ i18n('Default') }}
                                     </span>
                                     <span class="tag is-small is-bold"
