@@ -2,7 +2,7 @@
     <enso-table class="box is-paddingless raises-on-hover"
         id="roles"
         @configure-role="redirect"
-        @write-config-file="$toastr.success($event.message)"/>
+        @write-config-file="toastr.success($event.message)"/>
 </template>
 
 <script>
@@ -16,6 +16,8 @@ export default {
     name: 'Index',
 
     components: { EnsoTable },
+
+    inject: ['toastr'],
 
     methods: {
         redirect($event) {

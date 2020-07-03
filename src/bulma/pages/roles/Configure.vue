@@ -54,7 +54,7 @@ import { CheckboxManager } from '@enso-ui/checkbox/bulma';
 export default {
     name: 'Configure',
 
-    inject: ['canAccess', 'errorHandler', 'i18n', 'route'],
+    inject: ['canAccess', 'errorHandler', 'i18n', 'route', 'toastr'],
 
     components: { CheckboxManager },
 
@@ -83,7 +83,7 @@ export default {
             axios.post(
                 this.route('system.roles.permissions.set', this.$route.params.role),
                 { rolePermissions: this.data.rolePermissions },
-            ).then(({ data }) => this.$toastr.success(data.message))
+            ).then(({ data }) => this.toastr.success(data.message))
                 .catch(this.errorHandler);
         },
     },

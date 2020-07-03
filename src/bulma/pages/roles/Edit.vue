@@ -49,7 +49,7 @@ library.add([faSave, faSlidersH]);
 export default {
     name: 'Edit',
 
-    inject: ['errorHandler', 'i18n', 'route'],
+    inject: ['errorHandler', 'i18n', 'route', 'toastr'],
 
     components: { EnsoForm },
 
@@ -60,7 +60,7 @@ export default {
     methods: {
         writeConfig() {
             axios.post(this.route('system.roles.writeConfig', this.$refs.form.routeParam('role')))
-                .then(({ data }) => this.$toastr.success(data.message))
+                .then(({ data }) => this.toastr.success(data.message))
                 .catch(this.errorHandler);
         },
     },
