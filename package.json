@@ -21,7 +21,6 @@
   },
   "homepage": "https://github.com/enso-ui/roles#readme",
   "dependencies": {
-    "@enso-ui/card": "^2.0",
     "@enso-ui/checkbox": "^2.0",
     "@enso-ui/forms": "^2.0",
     "@enso-ui/permissions": "^3.0",
