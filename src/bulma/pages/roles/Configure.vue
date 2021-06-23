@@ -3,12 +3,12 @@
         <div class="column is-half is-three-fifths-desktop is-full-touch">
             <div class="animated fadeIn"
                 v-if="data">
-                <checkbox-manager class="is-rounded has-margin-top-large"
+                <checkbox-manager class="is-rounded mt-3"
                     :title="`${i18n('Permissions')}: ${data.role.display_name}`"
                     v-model="data.rolePermissions"
                     :items="data.permissions">
                     <template v-slot:item="{ item }">
-                        <div class="level permission is-hoverable has-padding-medium is-mobile">
+                        <div class="level permission is-hoverable p-2 is-mobile">
                             <div class="level-left">
                                 <div class="level-item">
                                     <label class="checkbox">
@@ -22,7 +22,7 @@
                             </div>
                             <div class="level-right">
                                 <div class="level-item">
-                                    <span class="tag is-small is-info is-bold has-margin-right-medium"
+                                    <span class="tag is-small is-info is-bold mr-2"
                                         v-if="item.isDefault">
                                         {{ i18n('Default') }}
                                     </span>
@@ -35,7 +35,7 @@
                         </div>
                     </template>
                 </checkbox-manager>
-                <button class="button is-success has-margin-top-large is-pulled-right"
+                <button class="button is-success mt-3 is-pulled-right"
                     @click="update"
                     :disabled="!canAccess('system.roles.permissions.set')">
                     {{ i18n("Update") }}
