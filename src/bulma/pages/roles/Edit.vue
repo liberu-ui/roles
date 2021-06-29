@@ -6,12 +6,12 @@
                 ref="form">
                 <template v-slot:actions-left
                     v-if="ready">
-                    <div class=level-item>
+                    <div class="level-item">
                         <a class="button is-warning"
                             @click="$router.push({
                                 name: 'system.roles.configure',
                                 params: { role: $refs.form.routeParam('role') }
-                            })">
+                            }).catch(routerErrorHandler)">
                             <span class="is-hidden-mobile">
                                 {{ i18n('Configure') }}
                             </span>
@@ -21,7 +21,7 @@
                             <span class="is-hidden-mobile"/>
                         </a>
                     </div>
-                    <div class=level-item>
+                    <div class="level-item">
                         <a class="button is-link"
                             @click="writeConfig">
                             <span class="is-hidden-mobile">
@@ -49,7 +49,7 @@ library.add([faSave, faSlidersH]);
 export default {
     name: 'Edit',
 
-    inject: ['errorHandler', 'i18n', 'route', 'toastr'],
+    inject: ['errorHandler', 'i18n', 'route', 'routerErrorHandler', 'toastr'],
 
     components: { EnsoForm },
 
@@ -61,7 +61,7 @@ export default {
         writeConfig() {
             axios.post(this.route(
                 'system.roles.permissions.write',
-                this.$refs.form.routeParam('role')
+                this.$refs.form.routeParam('role'),
             )).then(({ data }) => this.toastr.success(data.message))
                 .catch(this.errorHandler);
         },

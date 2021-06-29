@@ -1,7 +1,10 @@
 <template>
     <enso-table class="box is-paddingless raises-on-hover"
         id="roles"
-        @configure-role="redirect"
+        @configure-role="$router.push({
+            name: 'system.roles.configure',
+            params: { role: $event.id },
+        }).catch(routerErrorHandler)"
         @write-config-file="toastr.success($event.message)"/>
 </template>
 
@@ -17,15 +20,6 @@ export default {
 
     components: { EnsoTable },
 
-    inject: ['toastr'],
-
-    methods: {
-        redirect($event) {
-            this.$router.push({
-                name: 'system.roles.configure',
-                params: { role: $event.id },
-            });
-        },
-    },
+    inject: ['routerErrorHandler', 'toastr'],
 };
 </script>
