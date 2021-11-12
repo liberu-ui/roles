@@ -7,7 +7,7 @@
                     :title="`${i18n('Permissions')}: ${data.role.display_name}`"
                     v-model="data.rolePermissions"
                     :items="data.permissions">
-                    <template v-slot:item="{ item }">
+                    <template #:item="{ item }">
                         <div class="level permission is-hoverable p-2 is-mobile">
                             <div class="level-left">
                                 <div class="level-item">
@@ -54,9 +54,9 @@ import { CheckboxManager } from '@enso-ui/checkbox/bulma';
 export default {
     name: 'Configure',
 
-    inject: ['canAccess', 'errorHandler', 'i18n', 'route', 'toastr'],
-
     components: { CheckboxManager },
+
+    inject: ['canAccess', 'errorHandler', 'i18n', 'route', 'toastr'],
 
     data: () => ({
         data: null,

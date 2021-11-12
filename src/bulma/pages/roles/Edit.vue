@@ -4,7 +4,7 @@
             <enso-form class="box has-background-light raises-on-hover"
                 @ready="ready = true"
                 ref="form">
-                <template v-slot:actions-left
+                <template #:actions-left
                     v-if="ready">
                     <div class="level-item">
                         <a class="button is-warning"
@@ -49,9 +49,9 @@ library.add([faSave, faSlidersH]);
 export default {
     name: 'Edit',
 
-    inject: ['errorHandler', 'i18n', 'route', 'routerErrorHandler', 'toastr'],
-
     components: { EnsoForm },
+
+    inject: ['errorHandler', 'i18n', 'route', 'routerErrorHandler', 'toastr'],
 
     data: () => ({
         ready: false,
