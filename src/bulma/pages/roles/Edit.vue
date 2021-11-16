@@ -4,7 +4,7 @@
             <enso-form class="box has-background-light raises-on-hover"
                 @ready="ready = true"
                 ref="form">
-                <template #:actions-left
+                <template #actions-left
                     v-if="ready">
                     <div class="level-item">
                         <a class="button is-warning"
