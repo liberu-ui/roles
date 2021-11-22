@@ -1,7 +1,7 @@
 <template>
     <div class="columns is-centered">
         <div class="column is-half is-three-fifths-desktop is-full-touch">
-            <div class="animated fadeIn"
+            <div class="animate__animated animate__fadeIn"
                 v-if="data">
                 <checkbox-manager class="is-rounded mt-3"
                     :title="`${i18n('Permissions')}: ${data.role.display_name}`"
@@ -47,6 +47,7 @@
 </template>
 
 <script>
+import 'animate.css';
 import { mapState } from 'vuex';
 import cssClass from '@enso-ui/permissions/src/bulma/modules/permission';
 import { CheckboxManager } from '@enso-ui/checkbox/bulma';
