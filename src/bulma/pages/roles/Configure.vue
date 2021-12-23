@@ -58,7 +58,9 @@ export default {
 
     components: { CheckboxManager, Fade },
 
-    inject: ['canAccess', 'errorHandler', 'i18n', 'route', 'toastr'],
+    inject: [
+        'canAccess', 'errorHandler', 'http', 'i18n', 'route', 'toastr'
+    ],
 
     data: () => ({
         data: null,
@@ -77,12 +79,12 @@ export default {
             return cssClass(this.enums.permissionTypes, item);
         },
         fetch() {
-            axios.get(this.route('system.roles.permissions.get', this.$route.params.role))
+            this.http.get(this.route('system.roles.permissions.get', this.$route.params.role))
                 .then(({ data }) => (this.data = data))
                 .catch(this.errorHandler);
         },
         update() {
-            axios.post(
+            this.http.post(
                 this.route('system.roles.permissions.set', this.$route.params.role),
                 { rolePermissions: this.data.rolePermissions },
             ).then(({ data }) => this.toastr.success(data.message))

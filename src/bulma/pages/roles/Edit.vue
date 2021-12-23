@@ -52,7 +52,9 @@ export default {
 
     components: { EnsoForm, Fa },
 
-    inject: ['errorHandler', 'i18n', 'route', 'routerErrorHandler', 'toastr'],
+    inject: [
+        'errorHandler', 'http', 'i18n', 'route', 'routerErrorHandler', 'toastr'
+    ],
 
     data: () => ({
         ready: false,
@@ -60,7 +62,7 @@ export default {
 
     methods: {
         writeConfig() {
-            axios.post(this.route(
+            this.http.post(this.route(
                 'system.roles.permissions.write',
                 this.$refs.form.routeParam('role'),
             )).then(({ data }) => this.toastr.success(data.message))
