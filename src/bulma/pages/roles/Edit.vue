@@ -53,7 +53,7 @@ export default {
     components: { EnsoForm, Fa },
 
     inject: [
-        'errorHandler', 'http', 'i18n', 'route', 'routerErrorHandler', 'toastr'
+        'errorHandler', 'http', 'i18n', 'route', 'routerErrorHandler', 'toastr',
     ],
 
     data: () => ({

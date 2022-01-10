@@ -59,7 +59,7 @@ export default {
     components: { CheckboxManager, Fade },
 
     inject: [
-        'canAccess', 'errorHandler', 'http', 'i18n', 'route', 'toastr'
+        'canAccess', 'errorHandler', 'http', 'i18n', 'route', 'toastr',
     ],
 
     data: () => ({
