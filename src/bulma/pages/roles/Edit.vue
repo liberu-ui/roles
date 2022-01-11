@@ -4,7 +4,7 @@
             <enso-form class="box has-background-light raises-on-hover"
                 @ready="ready = true"
                 ref="form">
-                <template v-slot:actions-left
+                <template #actions-left
                     v-if="ready">
                     <div class="level-item">
                         <a class="button is-warning"
@@ -40,18 +40,21 @@
 </template>
 
 <script>
+import { FontAwesomeIcon as Fa } from '@fortawesome/vue-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faSave, faSlidersH } from '@fortawesome/free-solid-svg-icons';
 import { EnsoForm } from '@enso-ui/forms/bulma';
 
-library.add([faSave, faSlidersH]);
+library.add(faSave, faSlidersH);
 
 export default {
     name: 'Edit',
 
-    inject: ['errorHandler', 'i18n', 'route', 'routerErrorHandler', 'toastr'],
+    components: { EnsoForm, Fa },
 
-    components: { EnsoForm },
+    inject: [
+        'errorHandler', 'http', 'i18n', 'route', 'routerErrorHandler', 'toastr',
+    ],
 
     data: () => ({
         ready: false,
@@ -59,7 +62,7 @@ export default {
 
     methods: {
         writeConfig() {
-            axios.post(this.route(
+            this.http.post(this.route(
                 'system.roles.permissions.write',
                 this.$refs.form.routeParam('role'),
             )).then(({ data }) => this.toastr.success(data.message))
