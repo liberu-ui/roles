@@ -16,7 +16,9 @@
                                                 :id="item.id"
                                                 :value="item.id"
                                                 v-model="data.rolePermissions">
-                                            {{ item.description }}
+                                            <span class="has-text-weight-bold ml-1">
+                                                {{ item.shortName }}
+                                            </span>: {{ item.description }}
                                         </label>
                                     </div>
                                 </div>
