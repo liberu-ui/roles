@@ -1,6 +1,6 @@
 {
   "name": "@enso-ui/roles",
-  "version": "4.0.10",
+  "version": "5.0.0",
   "description": "Basic roles package",
   "main": "src/bulma/pages/roles/Index.vue",
   "scripts": {
