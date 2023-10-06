@@ -43,7 +43,7 @@
 import { FontAwesomeIcon as Fa } from '@fortawesome/vue-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faSave, faSlidersH } from '@fortawesome/free-solid-svg-icons';
-import { EnsoForm } from '@enso-ui/forms/bulma';
+import { EnsoForm } from '@liberu-ui/forms/bulma';
 
 library.add(faSave, faSlidersH);
 

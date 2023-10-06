@@ -50,10 +50,10 @@
 </template>
 
 <script>
-import { Fade } from '@enso-ui/transitions';
+import { Fade } from '@liberu-ui/transitions';
 import { mapState } from 'vuex';
-import cssClass from '@enso-ui/permissions/src/bulma/modules/permission';
-import { CheckboxManager } from '@enso-ui/checkbox/bulma';
+import cssClass from '@liberu-ui/permissions/src/bulma/modules/permission';
+import { CheckboxManager } from '@liberu-ui/checkbox/bulma';
 
 export default {
     name: 'Configure',
